@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dynamic To-Do List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .todo-container {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      input[type="text"] {
+        width: 80%;
+        padding: 8px;
+        margin-right: 10px;
+      }
+      button {
+        padding: 8px 16px;
+        cursor: pointer;
+      }
+      ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+      li {
+        margin: 10px 0;
+        padding: 10px;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .delete-btn {
+        background-color: red;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="todo-container">
+      <h2>To-Do List</h2>
+      <input type="text" id="task-input" placeholder="Enter a new task" />
+      <button id="add-task-btn">Add Task</button>
+      <ul id="task-list"></ul>
+    </div>
+
+    <script>
+      let taskbtn = document.getElementById("add-task-btn");
+      let tasklist = document.getElementById("task-list");
+      taskbtn.addEventListener("click", function (event) {
+        let newtxt = document.getElementById("task-input");
+        if (newtxt.value === "") {
+          return;
+        }
+        let newli = document.createElement("li");
+        newli.innerText = newtxt.value;
+        let delbtn = document.createElement("button");
+        delbtn.innerText = "X";
+        delbtn.classList.add("delete-btn");
+        newli.appendChild(delbtn);
+        delbtn.addEventListener("click", function () {
+          newli.remove();
+        });
+        tasklist.appendChild(newli);
+        newtxt.value = "";
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    .box {
+      background-color: rgba(0, 0, 0, 0.267);
+      padding: 20px;
+      width: max-content;
+      height: max-content;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      border-radius: 10px;
+    }
+    .txtarea {
+      height: 300px;
+      width: 300px;
+      border-radius: 10px 10px 0px 0px;
+      border: none;
+      padding: 10px;
+      font-size: 15px;
+    }
+    .count {
+      width: 300px;
+      background-color: bisque;
+      font-size: 20px;
+      padding: 10px;
+      border-radius: 0px 0px 10px 10px;
+      border: none;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+  </style>
+  <body>
+    <div class="box">
+      <textarea name="" class="txtarea"></textarea>
+      <div class="count">
+        <p class="text">Count</p>
+        <p class="number">0</p>
+        <p class="limit">/ 200</p>
+      </div>
+    </div>
+  </body>
+  <script>
+    let text = document.querySelector(".txtarea");
+    text.addEventListener("input", function () {
+      let counter = document.querySelector(".number");
+      counter.innerText = text.value.length;
+      if (text.value.length < 150) {
+        counter.style.color = "green";
+      } else if (text.value.length >= 150 && text.value.length < 200) {
+        counter.style.color = "yellow";
+      } else if (text.value.length >= 200) {
+        counter.style.color = "red";
+      }
+    });
+  </script>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    ul {
+      list-style-type: none;
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    li {
+      background-color: antiquewhite;
+      border: 2px solid black;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .card {
+      display: flex;
+      flex-direction: column;
+      width: 350px;
+      background-color: rgba(0, 0, 0, 0.193);
+      padding: 15px;
+      border-radius: 5px;
+    }
+    .selected {
+      background-color: rgba(73, 125, 255, 0.751);
+    }
+    button {
+      border: none;
+      background-color: rgba(0, 159, 0, 0.791);
+      font-size: 20px;
+      width: max-content;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+  <body>
+    <div class="card">
+      <h2>Shall we start the quiz?</h2>
+      <ul class="answers"></ul>
+      <button>yes</button>
+      <h2 class="score" style="display: none;">You scored</h2>
+      <script>
+        let questionaire = [
+          {
+            question: "What is capital of India",
+            answers: ["Bombay", "Calcutta", "Madras", "Delhi"],
+            correct: "Delhi",
+          },
+          {
+            question: "Who invented telescope?",
+            answers: ["Galileo", "Apoorv", "Elon Musk", "Satoshi Nagamoto"],
+            correct: "Galileo",
+          },
+          {
+            question: "Who is the big bull of India",
+            answers: [
+              "Harshad Mehta",
+              "Radhakrishna Damani",
+              "Rakesh jhunjhunwala",
+              "Ajay Kedia",
+            ],
+            correct: "Rakesh Jhunjhunwala",
+          },
+          {
+            question: "What is Apoorv's girlfriend's name?",
+            answers: ["Priyanshi", "Manasvi", "He doesn't have one", "Akansha"],
+            correct: "He doesn't have one",
+          },
+          {
+            question: "When did Steve Jobs founded Apple?",
+            answers: ["1980", "1966", "1972", "1976"],
+            correct: "1976",
+          },
+        ];
+        let score=0
+        for(let i=0;i<Object.keys(questionaire).length;i+=1){
+            let btn=document.querySelector("button")
+            btn.addEventListener("click",function(){
+                if(i==0){
+                    btn.innerText="Next"
+                }
+            })
+        }
+      </script>
+    </div>
+  </body>
+</html>
